@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bwqtisr3iidvr"]
 
 [ext_resource type="Script" path="res://Scenes/PlatformingCharacter.gd" id="1_h1qr2"]
-[ext_resource type="Texture2D" uid="uid://b7f1xubvhrl6n" path="res://icon.svg" id="1_ls3vr"]
+[ext_resource type="Texture2D" uid="uid://by0qu4py2fp4h" path="res://Assets/Temp Assets/knight.png" id="2_i561h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfqh4"]
 
@@ -12,5 +12,13 @@ script = ExtResource("1_h1qr2")
 shape = SubResource("CircleShape2D_jfqh4")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
-scale = Vector2(0.146874, 0.146874)
-texture = ExtResource("1_ls3vr")
+texture_filter = 1
+position = Vector2(0.499999, -2.5)
+scale = Vector2(0.84375, 0.84375)
+texture = ExtResource("2_i561h")
+hframes = 8
+vframes = 8
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(3.295, 3.295)
+position_smoothing_enabled = true

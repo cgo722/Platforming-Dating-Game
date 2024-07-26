@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://blmpugr1pc18n"]
 
-[ext_resource type="Script" path="res://Scripts/DialogueSelector.gd" id="1_3imjy"]
+[ext_resource type="PackedScene" uid="uid://ba81kstpdcqee" path="res://Scenes/DialogueOptionsbutton.tscn" id="1_rf6jy"]
 
 [node name="World" type="Node2D"]
 
@@ -12,6 +12,7 @@ offset_top = 297.0
 offset_right = 709.0
 offset_bottom = 497.0
 
-[node name="Button" type="Button" parent="CanvasLayer/VBoxContainer"]
+[node name="Button" parent="CanvasLayer/VBoxContainer" instance=ExtResource("1_rf6jy")]
 layout_mode = 2
-script = ExtResource("1_3imjy")
+
+[connection signal="button_up" from="CanvasLayer/VBoxContainer/Button" to="CanvasLayer/VBoxContainer/Button" method="_on_button_up"]

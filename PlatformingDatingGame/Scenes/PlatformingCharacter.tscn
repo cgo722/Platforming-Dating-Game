@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://by0qu4py2fp4h" path="res://Assets/Temp Assets/knight.png" id="2_i561h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jfqh4"]
+radius = 7.07107
 
 [node name="PlatformingCharacter" type="CharacterBody2D"]
 script = ExtResource("1_h1qr2")

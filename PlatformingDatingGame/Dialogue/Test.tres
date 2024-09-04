@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://buqy8t7xlcdyt"]
+
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_evh5w"]
+
+[resource]
+script = ExtResource("1_evh5w")
+starts = {
+"0": &"0_1"
+}
+nodes = {
+"0_1": {
+"link": &"1_1",
+"offset": Vector2(-500, -240),
+"start_id": "0"
+},
+"1_1": {
+"dialogue": "Hello!",
+"offset": Vector2(-240, -280),
+"options": {
+0: {
+"condition": {},
+"link": &"5_2",
+"text": "Go Away"
+},
+1: {
+"condition": {},
+"link": "END",
+"text": "hi!"
+}
+},
+"size": Vector2(300, 240),
+"speaker": -1
+},
+"3_1": {
+"link": "END",
+"offset": Vector2(300, -420),
+"signalValue": ""
+},
+"5_1": {
+"false": "END",
+"offset": Vector2(220, -320),
+"operator": 0,
+"true": "END",
+"value1": "",
+"value2": ""
+},
+"5_2": {
+"false": "END",
+"offset": Vector2(171.886, -105.357),
+"operator": 0,
+"true": "END",
+"value1": "Charisma",
+"value2": ""
+}
+}
+variables = {
+"Charisma": {
+"type": 3,
+"value": 0.0
+}
+}
+strays = Array[String](["3_1", "5_1"])
+characters = ""

@@ -3,6 +3,7 @@ class_name LvlSelc
 
 @export var dialogueOption : int
 @export var levelSelect : PackedScene
+@export var world: Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,5 +17,5 @@ func _process(delta):
 
 func _on_button_down():
 	var loadLevel = levelSelect.instantiate()
-	get_node(".").add_child(loadLevel)
+	world.add_child(loadLevel)
 	self.queue_free()

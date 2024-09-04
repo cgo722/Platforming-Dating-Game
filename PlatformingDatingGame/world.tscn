@@ -1,19 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://blmpugr1pc18n"]
+[gd_scene load_steps=11 format=3 uid="uid://blmpugr1pc18n"]
 
-[ext_resource type="PackedScene" uid="uid://ba81kstpdcqee" path="res://Scenes/DialogueOptionsbutton.tscn" id="1_rf6jy"]
+[ext_resource type="Script" path="res://world.gd" id="1_hj13o"]
+[ext_resource type="Theme" uid="uid://b4f152moh4ayu" path="res://addons/dialogue_nodes/themes/bubblyClean.theme" id="2_msagd"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeWait.gd" id="3_6qyag"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeGhost.gd" id="4_481f6"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/bbcodeMatrix.gd" id="5_uajlj"]
+[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueBubble.gd" id="6_xi5e0"]
+[ext_resource type="Resource" uid="uid://buqy8t7xlcdyt" path="res://Dialogue/Test.tres" id="7_tjeh2"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_b53ko"]
+script = ExtResource("3_6qyag")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_5tnj1"]
+script = ExtResource("4_481f6")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_1giim"]
+script = ExtResource("5_uajlj")
 
 [node name="World" type="Node2D"]
+script = ExtResource("1_hj13o")
+metadata/_edit_vertical_guides_ = [-99.0]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 376.0
-offset_top = 297.0
-offset_right = 709.0
-offset_bottom = 497.0
+[node name="DialogueBubble" type="RichTextLabel" parent="CanvasLayer"]
+clip_contents = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -31.0
+offset_right = -180.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme = ExtResource("2_msagd")
+bbcode_enabled = true
+text = "Sample dialogue."
+fit_content = true
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_b53ko"), SubResource("RichTextEffect_5tnj1"), SubResource("RichTextEffect_1giim")]
+script = ExtResource("6_xi5e0")
+data = ExtResource("7_tjeh2")
+start_id = "0"
+dialogue_custom_effects = [SubResource("RichTextEffect_b53ko"), SubResource("RichTextEffect_5tnj1"), SubResource("RichTextEffect_1giim")]
 
-[node name="Button" parent="CanvasLayer/VBoxContainer" node_paths=PackedStringArray("world") instance=ExtResource("1_rf6jy")]
-layout_mode = 2
-world = NodePath("../../..")
-
-[connection signal="button_up" from="CanvasLayer/VBoxContainer/Button" to="CanvasLayer/VBoxContainer/Button" method="_on_button_up"]
+[connection signal="dialogue_signal" from="CanvasLayer/DialogueBubble" to="." method="_on_dialogue_bubble_dialogue_signal"]

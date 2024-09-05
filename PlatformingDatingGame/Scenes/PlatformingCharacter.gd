@@ -22,6 +22,10 @@ func _physics_process(delta):
 		velocity.y = -10
 	if Input.is_action_pressed("Sprint"):
 		speed = runSpeed
+		animated_sprite_2d.speed_scale = 1.5
+	
+	if Input.is_action_just_released("Sprint"):
+		animated_sprite_2d.speed_scale = 1
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.

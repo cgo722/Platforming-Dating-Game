@@ -10,7 +10,7 @@ starts = {
 nodes = {
 "0_1": {
 "link": &"1_1",
-"offset": Vector2(-500, -240),
+"offset": Vector2(-840, -280),
 "start_id": "0"
 },
 "1_1": {
@@ -28,27 +28,27 @@ nodes = {
 "text": "hi!"
 }
 },
-"size": Vector2(300, 240),
+"size": Vector2(300, 542),
 "speaker": "Jose"
 },
 "3_1": {
 "link": "END",
-"offset": Vector2(300, -420),
+"offset": Vector2(40, -680),
 "signalValue": ""
 },
 "3_2": {
 "link": "END",
-"offset": Vector2(120, -120),
+"offset": Vector2(200, 80),
 "signalValue": "Mean"
 },
 "3_3": {
 "link": "END",
-"offset": Vector2(120, -40),
+"offset": Vector2(200, 240),
 "signalValue": "Nice"
 },
 "5_1": {
 "false": "END",
-"offset": Vector2(180, -420),
+"offset": Vector2(620, -560),
 "operator": 0,
 "true": "END",
 "value1": "",
@@ -56,7 +56,7 @@ nodes = {
 },
 "5_2": {
 "false": "END",
-"offset": Vector2(460, -300),
+"offset": Vector2(220, -480),
 "operator": 0,
 "true": "END",
 "value1": "Charisma",
@@ -69,5 +69,5 @@ variables = {
 "value": 0.0
 }
 }
-strays = Array[String](["3_1", "5_2", "5_1"])
+strays = Array[String](["5_1", "3_1", "5_2"])
 characters = ""

@@ -37,8 +37,8 @@ nodes = {
 "signalValue": ""
 },
 "3_2": {
-"link": "END",
-"offset": Vector2(200, 80),
+"link": &"5_2",
+"offset": Vector2(200, 20),
 "signalValue": "Mean"
 },
 "3_3": {
@@ -56,18 +56,18 @@ nodes = {
 },
 "5_2": {
 "false": "END",
-"offset": Vector2(220, -480),
-"operator": 0,
+"offset": Vector2(940, 260),
+"operator": 3,
 "true": "END",
 "value1": "Charisma",
-"value2": ""
+"value2": "2"
 }
 }
 variables = {
 "Charisma": {
-"type": 3,
-"value": 0.0
+"type": 2,
+"value": 0
 }
 }
-strays = Array[String](["5_1", "3_1", "5_2"])
+strays = Array[String](["5_1", "3_1"])
 characters = ""

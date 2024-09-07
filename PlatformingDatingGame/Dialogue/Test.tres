@@ -1,9 +1,28 @@
-[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://buqy8t7xlcdyt"]
+[gd_resource type="Resource" script_class="DialogueData" load_steps=2 format=3 uid="uid://bkvdcnle4fnng"]
 
-[ext_resource type="Script" path="res://addons/dialogue_nodes/objects/DialogueData.gd" id="1_evh5w"]
+[sub_resource type="GDScript" id="GDScript_ouvk3"]
+script/source = "## Data for processing dialogue through a [param DialogueParser].
+@icon('res://addons/dialogue_nodes/icons/Dialogue.svg')
+class_name DialogueData
+extends Resource
+
+## Contains the start IDs as keys and their respective node name as values.
+## Example: { \"START\": \"0_1\" }
+@export var starts : Dictionary = {}
+## Contains all the data for each node in a dialogue graph with their node names as keys.[br]
+## Example: [code]{ \"0_1\": { \"link\": \"1_1\", \"offset\": Vector2(0, 0), \"start_id\": \"START\" } }[/code]
+@export var nodes : Dictionary = {}
+## Contains the variable data including the variable name, data type and initial value.[br]
+## Example: [code]{ \"COINS\": { \"type\": TYPE_INT, \"value\": 10 } }[/code]
+@export var variables : Dictionary = {}
+## Contains the node names of all the nodes not connected to a dialogue tree
+@export var strays : Array[String] = []
+## Path to the [param CharacterList] resource file.
+@export var characters := ''
+"
 
 [resource]
-script = ExtResource("1_evh5w")
+script = SubResource("GDScript_ouvk3")
 starts = {
 "0": &"0_1"
 }
@@ -31,20 +50,45 @@ nodes = {
 "size": Vector2(300, 542),
 "speaker": "Jose"
 },
+"1_2": {
+"dialogue": "Your charisma is {{Charisma}}",
+"offset": Vector2(840, 140),
+"options": {
+0: {
+"condition": {},
+"link": "END",
+"text": ""
+}
+},
+"size": Vector2(300, 240),
+"speaker": "Jose"
+},
 "3_1": {
 "link": "END",
 "offset": Vector2(40, -680),
 "signalValue": ""
 },
 "3_2": {
-"link": &"5_2",
-"offset": Vector2(200, 20),
+"link": "END",
+"offset": Vector2(120, 180),
 "signalValue": "Mean"
 },
 "3_3": {
 "link": "END",
-"offset": Vector2(200, 240),
+"offset": Vector2(160, 340),
 "signalValue": "Nice"
+},
+"3_4": {
+"link": "END",
+"offset": Vector2(440, 420),
+"signalValue": ""
+},
+"4_1": {
+"link": "END",
+"offset": Vector2(420, 140),
+"type": 0,
+"value": "0",
+"variable": "Charisma"
 },
 "5_1": {
 "false": "END",
@@ -56,7 +100,7 @@ nodes = {
 },
 "5_2": {
 "false": "END",
-"offset": Vector2(940, 260),
+"offset": Vector2(800, 520),
 "operator": 3,
 "true": "END",
 "value1": "Charisma",
@@ -69,5 +113,5 @@ variables = {
 "value": 0
 }
 }
-strays = Array[String](["5_1", "3_1"])
+strays = Array[String](["3_1", "5_1", "4_1", "3_4", "5_2", "1_2"])
 characters = ""

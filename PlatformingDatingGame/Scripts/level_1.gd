@@ -4,6 +4,7 @@ var timer : float
 @onready var gamemanager = get_node("/root/GameManager")
 @export var player : CharacterBody2D
 var startLocation : Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	startLocation = player.position
@@ -25,6 +26,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		gamemanager.charisma = 1
 	else: if timer > 20:
 		gamemanager.charisma = 0
+	self.queue_free()
 	pass # Replace with function body.
 
 func _on_world_boundry_body_entered(body: Node2D) -> void:

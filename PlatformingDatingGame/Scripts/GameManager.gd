@@ -1,3 +1,3 @@
 extends Node
 
-var Charisma : int
+var charisma : int
